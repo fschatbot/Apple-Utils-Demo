@@ -4,8 +4,46 @@
 
 @layer utilities {
 	/* Custom TailWindCSS components Goes Here */
+	.min-w-20 {
+		min-width: 5rem;
+	}
+	.min-h-20 {
+		min-height: 5rem;
+	}
 }
 
 @layer components {
 	/* Custom TailWindCSS Goes Here */
+	.Menu {
+		@apply grid gap-2 grid-cols-4
+		max-w-sm mx-auto;
+	}
+
+	.Menu div {
+		@apply border border-gray-800 rounded-xl
+		p-3 min-w-20 min-h-20
+		transition-all;
+	}
+
+	#Utils {
+		@apply row-span-2 col-span-2
+		h-40;
+	}
+
+	#MusicPlayer {
+		@apply row-span-2 col-span-2
+		h-40;
+	}
+
+	#Brightness {
+		@apply row-span-2;
+	}
+
+	#Volume {
+		@apply row-span-2;
+	}
+
+	#ScreenMirroring {
+		@apply col-span-2;
+	}
 }
