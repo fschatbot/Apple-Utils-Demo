@@ -1,18 +1,24 @@
 import { Component } from "react";
 import { IoIosAirplane, IoIosCellular, IoIosWifi, IoIosBluetooth } from "react-icons/io";
-import { BsFillVolumeMuteFill, BsFillVolumeOffFill, BsFillVolumeDownFill, BsFillVolumeUpFill } from "react-icons/bs";
+import {
+	BsFillVolumeMuteFill,
+	BsFillVolumeOffFill,
+	BsFillVolumeDownFill,
+	BsFillVolumeUpFill,
+} from "react-icons/bs";
 import { IoIosMoon } from "react-icons/io";
 import { IoIosFlashlight, IoIosTimer, IoIosCalculator, IoIosCamera } from "react-icons/io";
 import { IoQrCodeOutline } from "react-icons/io5";
 import { BsFillBrightnessLowFill, BsFillBrightnessHighFill } from "react-icons/bs";
 import { BiLockAlt, BiLockOpenAlt } from "react-icons/bi";
 import { CgScreenMirror } from "react-icons/cg";
+import { AiOutlineReload } from "react-icons/ai";
 
 class App extends Component {
 	state = {
 		Volume: 100,
 		Brightness: 100,
-		LockOrianation: false,
+		LockOrianation: true,
 	};
 	render() {
 		return (
@@ -34,9 +40,7 @@ class App extends Component {
 				<div className="MenuItem" id="MusicPlayer">
 					Item 2
 				</div>
-				<div className="MenuItem" id="LockOrianation">
-					<this.LockOrientation Locked={this.state.LockOrianation} />
-				</div>
+				<this.LockOrientation Locked={this.state.LockOrianation} />
 				<div className="MenuItem" id="NightLight">
 					<IoIosMoon />
 				</div>
@@ -90,7 +94,18 @@ class App extends Component {
 	};
 
 	LockOrientation = ({ Locked = false }) => {
-		return Locked ? <BiLockAlt /> : <BiLockOpenAlt />;
+		let LockStyle = Locked ? { color: "#fa6366", background: "white" } : {};
+		return (
+			<div
+				className={"MenuItem LockOrianation" + (Locked ? " locked" : "")}
+				style={LockStyle}
+				onClick={this.toggleLockOrientation}>
+				{Locked ? <BiLockAlt /> : <BiLockOpenAlt />}
+			</div>
+		);
+	};
+	toggleLockOrientation = () => {
+		this.setState({ LockOrianation: !this.state.LockOrianation });
 	};
 }
 
