@@ -47,8 +47,8 @@ class App extends Component {
 					<this.VolumeElem Volume={this.state.Volume} />
 				</div>
 				<div className="MenuItem" id="ScreenMirroring">
-					<CgScreenMirror size="5rem" />
-					Screen Mirroring
+					<CgScreenMirror size="3rem" />
+					<label>Screen Mirroring</label>
 				</div>
 				<div className="MenuItem" id="Flashlight">
 					<IoIosFlashlight />

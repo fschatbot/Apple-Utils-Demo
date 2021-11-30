@@ -20,7 +20,7 @@
 	}
 
 	.MenuItem {
-		@apply border bg-gray-800 rounded-xl text-white text-4xl
+		@apply border bg-gray-800 rounded-3xl text-white text-4xl
 		p-3 min-w-20 min-h-20
 		flex justify-center items-center
 		transition-all;
@@ -62,6 +62,6 @@
 	}
 
 	#ScreenMirroring {
-		@apply text-2xl font-medium;
+		@apply text-lg font-medium;
 	}
 }
