@@ -16,18 +16,27 @@
 	/* Custom TailWindCSS Goes Here */
 	.Menu {
 		@apply grid gap-2 grid-cols-4
-		max-w-sm mx-auto;
+		max-w-sm mx-auto my-4;
 	}
 
-	.Menu div {
-		@apply border border-gray-800 rounded-xl
+	.MenuItem {
+		@apply border bg-gray-800 rounded-xl text-white text-4xl
 		p-3 min-w-20 min-h-20
+		flex justify-center items-center
 		transition-all;
 	}
 
 	#Utils {
 		@apply row-span-2 col-span-2
-		h-40;
+		h-40 justify-items-center
+		grid grid-cols-2 gap-2;
+	}
+
+	.MenuItemIcon {
+		@apply w-16 h-16
+		bg-gray-700 rounded-full
+		flex justify-center items-center
+		transition-all;
 	}
 
 	#MusicPlayer {
@@ -45,5 +54,14 @@
 
 	#ScreenMirroring {
 		@apply col-span-2;
+	}
+
+	#Brightness,
+	#Volume {
+		@apply items-end pb-5;
+	}
+
+	#ScreenMirroring {
+		@apply text-2xl font-medium;
 	}
 }
