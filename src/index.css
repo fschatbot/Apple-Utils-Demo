@@ -5,10 +5,13 @@
 @layer utilities {
 	/* Custom TailWindCSS components Goes Here */
 	.min-w-20 {
-		min-width: 5rem;
+		min-width: 4rem;
 	}
 	.min-h-20 {
-		min-height: 5rem;
+		min-height: 4rem;
+	}
+	.max-w-xs {
+		max-width: 18rem;
 	}
 }
 
@@ -16,11 +19,11 @@
 	/* Custom TailWindCSS Goes Here */
 	.Menu {
 		@apply grid gap-2 grid-cols-4
-		max-w-sm mx-auto my-4;
+		max-w-xs mx-auto my-4;
 	}
 
 	.MenuItem {
-		@apply border bg-gray-800 rounded-3xl text-white text-4xl
+		@apply bg-gray-800 rounded-3xl text-white text-3xl
 		p-3 min-w-20 min-h-20
 		flex justify-center items-center
 		transition-all;
@@ -28,12 +31,12 @@
 
 	#Utils {
 		@apply row-span-2 col-span-2
-		h-40 justify-items-center
+		h-32 justify-items-center
 		grid grid-cols-2 gap-2;
 	}
 
 	.MenuItemIcon {
-		@apply w-16 h-16
+		@apply w-12 h-12
 		bg-gray-700 rounded-full
 		flex justify-center items-center
 		transition-all;
@@ -41,7 +44,7 @@
 
 	#MusicPlayer {
 		@apply row-span-2 col-span-2
-		h-40;
+		h-32;
 	}
 
 	#Brightness {
@@ -62,6 +65,10 @@
 	}
 
 	#ScreenMirroring {
-		@apply text-lg font-medium;
+		@apply text-base font-medium;
+	}
+
+	body {
+		@apply bg-gray-200;
 	}
 }
