@@ -29,6 +29,19 @@
 		transition-all;
 	}
 
+	.MenuItemIcon.Airplane.Active {
+		@apply bg-orange-400;
+	}
+
+	.MenuItemIcon.Cellular.Active {
+		@apply bg-green-400;
+	}
+
+	.MenuItemIcon.Wifi.Active,
+	.MenuItemIcon.BlueTooth.Active {
+		@apply bg-blue-500;
+	}
+
 	#Utils {
 		@apply row-span-2 col-span-2
 		h-32 justify-items-center

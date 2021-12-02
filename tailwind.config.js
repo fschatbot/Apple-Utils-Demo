@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
 	mode: "jit",
 	purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
@@ -5,6 +7,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				orange: colors.amber,
 				gray: {
 					800: "#717171",
 					700: "#909090",

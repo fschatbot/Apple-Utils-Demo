@@ -19,21 +19,34 @@ class App extends Component {
 		Volume: 100,
 		Brightness: 100,
 		LockOrianation: true,
+		AirplaneMode: false,
+		WifiMode: true,
+		BluetoothMode: true,
+		CellularMode: true,
 	};
 	render() {
+		const { AirplaneMode, WifiMode, BluetoothMode, CellularMode } = this.state;
 		return (
 			<div className="Menu">
 				<div className="MenuItem" id="Utils">
-					<div className="MenuItemIcon">
+					<div
+						className={"MenuItemIcon Airplane" + this.isActive(AirplaneMode)}
+						onClick={this.toggleAirplane}>
 						<IoIosAirplane />
 					</div>
-					<div className="MenuItemIcon">
+					<div
+						className={"MenuItemIcon Cellular" + this.isActive(CellularMode)}
+						onClick={this.toggleIconState("CellularMode")}>
 						<IoIosCellular />
 					</div>
-					<div className="MenuItemIcon">
+					<div
+						className={"MenuItemIcon Wifi" + this.isActive(WifiMode)}
+						onClick={this.toggleIconState("WifiMode")}>
 						<IoIosWifi />
 					</div>
-					<div className="MenuItemIcon">
+					<div
+						className={"MenuItemIcon BlueTooth" + this.isActive(BluetoothMode)}
+						onClick={this.toggleIconState("BluetoothMode")}>
 						<IoIosBluetooth />
 					</div>
 				</div>
@@ -73,6 +86,10 @@ class App extends Component {
 		);
 	}
 
+	isActive = (value) => {
+		return value ? " Active" : "";
+	};
+
 	VolumeElem = ({ Volume = 100 }) => {
 		if (Volume >= 66) {
 			return <BsFillVolumeUpFill />;
@@ -99,13 +116,31 @@ class App extends Component {
 			<div
 				className={"MenuItem LockOrianation" + (Locked ? " locked" : "")}
 				style={LockStyle}
-				onClick={this.toggleLockOrientation}>
+				onClick={this.toggleState("LockOrianation")}>
 				{Locked ? <BiLockAlt /> : <BiLockOpenAlt />}
 			</div>
 		);
 	};
-	toggleLockOrientation = () => {
-		this.setState({ LockOrianation: !this.state.LockOrianation });
+
+	toggleAirplane = () => {
+		if (!this.state.AirplaneMode) {
+			this.setState({
+				AirplaneMode: true,
+				CellularMode: false,
+				WifiMode: false,
+				BluetoothMode: false,
+			});
+		} else {
+			this.setState({ AirplaneMode: false });
+		}
+	};
+	toggleIconState = (name) => () => {
+		this.setState({ AirplaneMode: false, [name]: !this.state.name });
+	};
+
+	toggleState = (name) => () => {
+		// Make this work
+		this.setState({ [name]: !this.state[name] });
 	};
 }
 
