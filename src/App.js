@@ -12,7 +12,6 @@ import { IoQrCodeOutline } from "react-icons/io5";
 import { BsFillBrightnessLowFill, BsFillBrightnessHighFill } from "react-icons/bs";
 import { BiLockAlt, BiLockOpenAlt } from "react-icons/bi";
 import { CgScreenMirror } from "react-icons/cg";
-import { AiOutlineReload } from "react-icons/ai";
 
 class App extends Component {
 	state = {
